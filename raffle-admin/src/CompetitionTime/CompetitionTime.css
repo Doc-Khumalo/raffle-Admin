@@ -1,0 +1,11 @@
+.formStart, .formEnd, .resultStart, .resultEnd {
+  /*display: flex;*/
+}
+
+.dateTimePicker {
+  /*flex-grow: 1;*/
+}
+
+.labelInput {
+  /*flex-grow: 1;*/
+}
