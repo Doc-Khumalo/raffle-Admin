@@ -40,10 +40,10 @@
           <file leaf-file-name="CompetitionTime.component.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.component.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="149">
-                  <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+                <state relative-caret-position="539">
+                  <caret line="163" column="31" lean-forward="true" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
                   <folding>
-                    <element signature="e#97#150#0" expanded="true" />
+                    <element signature="e#0#41#0" expanded="true" />
                     <element signature="n#!!block;n#isTimeValid#0;n#CompetitionTime#0" />
                     <element signature="n#!!block;n#openPopupbox#0;n#CompetitionTime#0" />
                   </folding>
@@ -213,12 +213,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530875306088</updated>
-      <workItem from="1530875307346" duration="38781000" />
+      <workItem from="1530875307346" duration="41629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38781000" />
+    <option name="totallyTimeSpent" value="41629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -301,10 +301,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+        <state relative-caret-position="539">
+          <caret line="163" column="31" lean-forward="true" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
           <folding>
-            <element signature="e#97#150#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
             <element signature="n#!!block;n#isTimeValid#0;n#CompetitionTime#0" />
             <element signature="n#!!block;n#openPopupbox#0;n#CompetitionTime#0" />
           </folding>
