@@ -1,5 +1,18 @@
 .formStart, .formEnd, .resultStart, .resultEnd {
-  /*display: flex;*/
+  display: flex;
+}
+
+.labelWrapper, .timeWrapper {
+  /*flex-grow: 1;*/
+  /*width: 100%;*/
+  max-width: 145px;
+  margin: 0 auto;
+}
+
+.componentWrapper {
+  max-width: 235px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .dateTimePicker {

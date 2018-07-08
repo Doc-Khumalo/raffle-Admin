@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import DateTimePicker from 'react-datetime-picker';
+// import DateTimePicker from 'react-datetime-picker';
+import TimePicker from 'react-bootstrap-time-picker';
 import fire from '../fire';
 import moment from 'moment-timezone';
 import './CompetitionTime.css';
@@ -7,21 +8,44 @@ import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
 
 class CompetitionTime extends Component{
   state = {
-    formStart: null,
-    formEnd: null,
-    resultStart: null,
-    resultEnd: null,
-    disabled: true
+    formStart: moment().tz("Europe/London").toISOString(),
+    formEnd: moment().tz("Europe/London").toISOString(),
+    resultStart: moment().tz("Europe/London").toISOString(),
+    resultEnd: moment().tz("Europe/London").toISOString(),
+    disabled: true,
+    value: new Date(),
+    time: 0
   };
 
-  formStart = formStart => this.setState({ formStart });
-  formEnd = formEnd => this.setState({ formEnd });
-  resultStart = resultStart => this.setState({ resultStart });
-  resultEnd = resultEnd => this.setState({ resultEnd });
+  formStart = e => this.setState({ formStart: e });
+  formEnd = e => this.setState({ formEnd: e });
+  resultStart = e => this.setState({ resultStart: e });
+  resultEnd = e => this.setState({ resultEnd: e });
 
   handleSubmit() {
+    let newTimeToSend = [];
+    let todayDate = moment().tz("Europe/London").toISOString().split('T')[0];
+    const {
+      formStart,
+      formEnd,
+      resultStart,
+      resultEnd
+    } = this.state;
+
+    newTimeToSend.push(
+      `${todayDate}T${this.state.formStart}`,
+      `${todayDate}T${this.state.formEnd}`,
+      `${todayDate}T${this.state.resultStart}`,
+      `${todayDate}T${this.state.resultEnd}`
+    )
+    const formattedFormStart = moment.utc(formStart * 1000).format('HH:mm:ss');
+    const formattedFormEnd = moment.utc(formEnd * 1000).format('HH:mm:ss');
+    const formattedResultStart = moment.utc(resultStart * 1000).format('HH:mm:ss');
+    const formattedResultEnd = moment.utc(resultEnd * 1000).format('HH:mm:ss');
+
+    console.log('formatted', formattedFormStart, formattedFormEnd, formattedResultStart, formattedResultEnd)
+
     const database = fire.database();
-    console.log('all states', this.state)
     const postData = {
       formStart: moment(this.state.formStart).tz("Europe/London").format(),
       formEnd: moment(this.state.formEnd).tz("Europe/London").format(),
@@ -67,7 +91,14 @@ class CompetitionTime extends Component{
       }
     })
   }
+
+  handleTimeChange(e) {
+    console.log('test test test', e)
+  }
   render() {
+
+    const showSecond = true;
+    const str = showSecond ? 'HH:mm:ss' : 'HH:mm';
 
     let test = document.getElementsByClassName('react-datetime-picker__button__input');
     console.log('test', test);
@@ -75,46 +106,67 @@ class CompetitionTime extends Component{
     return (
       <div className="container-fluid">
         <PopupboxContainer />
-        <div className="formStart">
-          <label className="labelInput">Form Start:</label>
-          <DateTimePicker
-            className="dateTimePicker"
-            onChange={this.formStart}
-            value={this.state.formStart}
-          />
-        </div>
-        <div className="formEnd">
-          <label className="labelInput">Form End:</label>
-          <DateTimePicker
-            className="dateTimePicker"
-            onChange={this.formEnd}
-            value={this.state.formEnd}
-          />
-        </div>
-        <div className="resultStart">
-          <label className="labelInput">Results Start:</label>
-          <DateTimePicker
-            className="dateTimePicker"
-            onChange={this.resultStart}
-            value={this.state.resultStart}
-          />
-        </div>
-        <div className="resultEnd">
-          <label className="labelInput">Results End:</label>
-          <DateTimePicker
-            className="dateTimePicker"
-            onChange={this.resultEnd}
-            value={this.state.resultEnd}
-          />
-        </div>
+        <div className="componentWrapper">
+          <div className="formStart">
+              <label className="labelInput">Form Start:</label>
 
-        {this.isTimeValid() === true &&
-          <input
-            type='button'
-            value='submit times'
-            onClick={() => this.handleSubmit()}
-          />
-        }
+            <div className="timeWrapper">
+              <TimePicker
+                start="06:00"
+                end="23:55"
+                step={5}
+                value={this.state.formStart}
+                onChange={e => this.formStart(e)}
+              />
+            </div>
+          </div>
+          <div className="formEnd">
+              <label className="labelInput">Form End:</label>
+
+            <div className="timeWrapper">
+              <TimePicker
+                start="06:00"
+                end="23:55"
+                step={5}
+                value={this.state.formEnd}
+                onChange={e => this.formEnd(e)}
+              />
+            </div>
+          </div>
+          <div className="resultStart">
+              <label className="labelInput">Results Start:</label>
+
+            <div className="timeWrapper">
+              <TimePicker
+                start="06:00"
+                end="23:55"
+                step={5}
+                value={this.state.resultStart}
+                onChange={e => this.resultStart(e)}
+              />
+            </div>
+          </div>
+          <div className="resultEnd">
+              <label className="labelInput">Results End:</label>
+
+            <div className="timeWrapper">
+              <TimePicker
+                start="06:00"
+                end="23:55"
+                step={5}
+                value={this.state.resultEnd}
+                onChange={e => this.resultEnd(e)}
+              />
+            </div>
+          </div>
+          {this.isTimeValid() === true &&
+            <input
+              type='button'
+              value='submit times'
+              onClick={() => this.handleSubmit()}
+            />
+          }
+        </div>
       </div>
     )
   }
