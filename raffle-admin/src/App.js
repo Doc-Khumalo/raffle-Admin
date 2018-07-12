@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CompetitionTime from '../src/CompetitionTime/CompetitionTime.component';
 import logo from './logo.svg';
 import './App.css';
+import Login from './Login/Login.component';
 
 class App extends Component {
   render() {
@@ -11,7 +12,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">DailyChoppins Form & Results Scheduling</h1>
         </header>
-        <CompetitionTime />
+        <Login />
       </div>
     );
   }

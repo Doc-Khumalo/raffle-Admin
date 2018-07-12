@@ -3,18 +3,22 @@ import TimePicker from 'react-bootstrap-time-picker';
 import fire from '../fire';
 import moment from 'moment-timezone';
 import './CompetitionTime.css';
-import { PopupboxManager, PopupboxContainer } from 'react-popupbox';
+import PopUp from '../PopUp/PopUp.component';
 
 class CompetitionTime extends Component{
-  state = {
-    formStart: null,
-    formEnd: null,
-    resultStart: null,
-    resultEnd: null,
-    disabled: true,
-    value: new Date(),
-    time: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      formStart: null,
+      formEnd: null,
+      resultStart: null,
+      resultEnd: null,
+      disabled: true,
+      value: new Date(),
+      showPopup: false,
+      time: 0
+    };
+  }
 
   formStart = e => this.setState({ formStart: e });
   formEnd = e => this.setState({ formEnd: e });
@@ -54,8 +58,8 @@ class CompetitionTime extends Component{
     database.ref('setTimeForm/').set({
       postData
     });
-
-    this.openPopupbox();
+    this.togglePopup();
+    document.getElementById("user-form").reset();
   }
 
   isTimeValid() {
@@ -69,31 +73,35 @@ class CompetitionTime extends Component{
     }
     return false
   }
-  openPopupbox() {
-    const content = (
-      <div>
-        {/*<button onClick={() => this.updatePopupbox()}>Update!</button>*/}
-      </div>
-    );
-    PopupboxManager.open({
-      content,
-      config: {
-        titleBar: {
-          enable: true,
-          text: `Time entry saved!`
 
-        },
-        fadeIn: true,
-        fadeInSpeed: 500
-      }
-    })
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
   }
 
   render() {
+    const popUpInfo = (
+      <div>
+        time set
+      </div>
+    )
+
     return (
       <div className="container-fluid">
-        <PopupboxContainer />
-        <div className="componentWrapper">
+        <div>
+          {this.state.showPopup ?
+            <PopUp
+              info={popUpInfo}
+              closePopup={() => this.togglePopup()}
+            />
+            : null
+          }
+        </div>
+
+        <form action="" id="user-form" noValidate="novalidate">
+          <fieldset>
+            <div className="componentWrapper">
           <div className="formStart">
             <label className="labelInput">Form Start:</label>
             <div className="timeWrapper">
@@ -102,7 +110,7 @@ class CompetitionTime extends Component{
                 initialValue="00:00"
                 start="00:00"
                 end="23:55"
-                step={15}
+                step={5}
                 value={this.state.formStart}
                 onChange={e => this.formStart(e)}
               />
@@ -116,7 +124,7 @@ class CompetitionTime extends Component{
                 format={24}
                 start="00:00"
                 end="23:55"
-                step={15}
+                step={5}
                 value={this.state.formEnd}
                 onChange={e => this.formEnd(e)}
               />
@@ -129,7 +137,7 @@ class CompetitionTime extends Component{
                 format={24}
                 start="00:00"
                 end="23:55"
-                step={15}
+                step={5}
                 value={this.state.resultStart}
                 onChange={e => this.resultStart(e)}
               />
@@ -142,7 +150,7 @@ class CompetitionTime extends Component{
                 format={24}
                 start="00:00"
                 end="23:55"
-                step={15}
+                step={5}
                 value={this.state.resultEnd}
                 onChange={e => this.resultEnd(e)}
               />
@@ -156,6 +164,8 @@ class CompetitionTime extends Component{
             />
           }
         </div>
+          </fieldset>
+        </form>
       </div>
     )
   }
