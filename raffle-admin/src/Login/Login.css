@@ -26,6 +26,10 @@
   margin: 0 auto;
 }
 
+fieldset {
+  padding: 0 25px 0 25px;
+}
+
 .label {
   display: inline-block;
   zoom: 1;
