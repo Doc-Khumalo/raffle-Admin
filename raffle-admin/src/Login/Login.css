@@ -14,10 +14,11 @@
 }
 
 .showPassword {
-  margin-left: -60px;
+  margin-left: -65px;
   height: 34px;
   top: 6.5px;
   position: relative;
+  padding: 0 10px 0px 10px;
 }
 
 .inputWrapper {
