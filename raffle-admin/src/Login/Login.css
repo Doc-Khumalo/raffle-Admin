@@ -6,3 +6,7 @@
   display: inline;
   width: auto;
 }
+
+.showPassword {
+  margin-left: -60px;
+}

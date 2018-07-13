@@ -16,7 +16,10 @@ class Login extends Component{
       loginDiv: '',
       showPopup: false,
       errorMessage: null,
-      disabled: true
+      disabled: true,
+      showPassword: false,
+      passwordText: 'show',
+      type: 'password'
     }
   }
 
@@ -71,6 +74,16 @@ class Login extends Component{
     });
   }
 
+  showPasswordHandler = (event) => {
+    event.preventDefault();
+
+    if(this.state.type === 'password') {
+      this.setState({ passwordText: 'hide', type: 'text' })
+    } else {
+      this.setState({ passwordText: 'show', type: 'password' })
+    }
+  }
+
   render() {
     const popUpInfo = (
       <div>
@@ -97,7 +110,7 @@ class Login extends Component{
               <label>Email</label>
               <input
                 className="form-control formInput"
-                placeholder="Please enter Email"
+                placeholder="Email"
                 name='email'
                 type="email"
                 id="email_field"
@@ -109,12 +122,18 @@ class Login extends Component{
               <label>Password</label>
               <input
                 className="form-control formInput"
-                placeholder="Please enter Email"
+                placeholder="Password"
                 name='password'
-                type="password"
+                type={this.state.type}
                 id="password_field"
                 onChange={event => this.handleSubmit(event)}
                 onClick={event => this.labelHandler(event)}
+              />
+              <input
+                type='button'
+                value={this.state.passwordText}
+                className='showPassword'
+                onClick={event => this.showPasswordHandler(event)}
               />
             </div>
             <button
