@@ -64,7 +64,8 @@ class Login extends Component{
     event.preventDefault();
     fire.auth().signOut();
     this.setState({
-      loggedIn: false
+      loggedIn: false,
+      disabled: true
     });
   }
 
