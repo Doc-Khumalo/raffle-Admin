@@ -106,8 +106,8 @@ class Login extends Component{
         {this.state.loggedIn === false &&
         <form action="" id="user-form" noValidate="novalidate" onSubmit={event => this.handleSignIn(event)}>
           <fieldset>
-            <div>
-              <label>Email</label>
+            <div className="inputWrapper">
+              <label className="label">Email</label>
               <input
                 className="form-control formInput"
                 placeholder="Email"
@@ -118,8 +118,8 @@ class Login extends Component{
                 onClick={event => this.labelHandler(event)}
               />
             </div>
-            <div>
-              <label>Password</label>
+            <div className="inputWrapper">
+              <label className="label">Password</label>
               <input
                 className="form-control formInput"
                 placeholder="Password"

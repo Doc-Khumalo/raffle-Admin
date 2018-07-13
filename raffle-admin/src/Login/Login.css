@@ -3,10 +3,34 @@
 }
 
 .formInput {
-  display: inline;
-  width: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display:inline-block;
+  *display: inline;     /* for IE7*/
+  zoom:1;              /* for IE7*/
+  vertical-align:middle;
+  margin-left:20px;
+  width: 100%;
 }
 
 .showPassword {
   margin-left: -60px;
+  height: 34px;
+  top: 6.5px;
+  position: relative;
+}
+
+.inputWrapper {
+  display: flex;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.label {
+  display: inline-block;
+  zoom: 1;
+  float: left;
+  padding-top: 5px;
+  text-align: right;
+  width: 140px;
 }
