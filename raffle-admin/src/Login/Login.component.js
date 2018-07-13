@@ -3,6 +3,8 @@ import CompetitionTime from '../CompetitionTime/CompetitionTime.component';
 import './Login.css';
 import fire from '../fire';
 
+import PopUp from '../PopUp/PopUp.component';
+
 class Login extends Component{
   constructor(props){
     super(props);
@@ -11,7 +13,10 @@ class Login extends Component{
       password: null,
       loggedIn: false,
       userDiv: '',
-      loginDiv: ''
+      loginDiv: '',
+      showPopup: false,
+      errorMessage: null,
+      disabled: true
     }
   }
 
@@ -20,64 +25,73 @@ class Login extends Component{
   };
 
   handleSubmit = event => {
-
     let change = {};
     change[event.target.name] = event.target.value;
     this.setState(change);
 
-    console.log('handleSubmit', this.state)
+    const { email, password } = this.state;
+    if(email !== null && password !== null) {
+      this.setState({ disabled: false });
+    } else {
+      this.setState({ disabled: true });
+    }
   };
 
   handleSignIn(event) {
     event.preventDefault();
-    this.handleFire();
-    // this.setState({ loggedIn: true });
-
     const { email, password } = this.state;
-
-    fire.auth().signInWithEmailAndPassword(email, password).catch(error => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ...
-
-      console.log('handleSignIn', email, password, errorCode, errorMessage);
+    fire.auth().signInWithEmailAndPassword(email, password)
+      .then(response => {
+        this.setState({
+          loggedIn: true
+        });
+        console.log('response', response)
+      })
+      .catch(error => {
+        console.log('error', error);
+        this.setState({
+          errorMessage: error.message,
+          loggedIn: false
+        });
+        this.togglePopup();
     });
   };
 
-  handleFire(event) {
-    // event.preventDefault();
-    fire.auth().onAuthStateChanged(user => {
-      if (user) {
-        console.log('User is signed in.', user)
-
-        let user = fire.auth().currentUser;
-
-        if (user !== null) {
-          this.setState({ loggedIn: true })
-        }
-      } else {
-        this.setState({ loggedIn: false })
-        console.log('No user is signed in.', user)
-      }
+  handleLogout(event) {
+    event.preventDefault();
+    fire.auth().signOut();
+    this.setState({
+      loggedIn: false
     });
-    console.log('handleFire', event)
-  };
+  }
+
+  togglePopup() {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
 
   render() {
-    const {
-      userName,
-      passWord,
-      loggedIn,
-      userDiv,
-      loginDiv,
-    } = this.state;
+    const popUpInfo = (
+      <div>
+        {this.state.errorMessage}
+      </div>
+    );
 
     return (
       <div>
+        <div>
+          {this.state.showPopup ?
+            <PopUp
+              info={popUpInfo}
+              closePopup={() => this.togglePopup()}
+            />
+            : null
+          }
+        </div>
         Login
-        {this.state.loggedIn === false ? (
-          <form action="" id="user-form" noValidate="novalidate" onSubmit={event => this.handleSignIn(event)}>
+        {this.state.loggedIn === false &&
+        <form action="" id="user-form" noValidate="novalidate" onSubmit={event => this.handleSignIn(event)}>
           <fieldset>
             <div>
               <label>Email</label>
@@ -111,11 +125,19 @@ class Login extends Component{
             </button>
           </fieldset>
         </form>
-          ) : (
-            <div>
-              <CompetitionTime />
-            </div>
-        )}
+        }
+        {this.state.loggedIn === true &&
+          <div>
+            <CompetitionTime />
+            <button
+              className="btn btn-primary custom-button"
+              type="submit"
+              onClick={event => this.handleLogout(event)}
+            >
+              Logout
+            </button>
+          </div>
+        }
       </div>
     )
   }
