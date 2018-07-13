@@ -133,7 +133,7 @@ class Login extends Component{
               <input
                 type='button'
                 value={this.state.passwordText}
-                className='showPassword'
+                className='showPassword btn btn-secondary'
                 onClick={event => this.showPasswordHandler(event)}
               />
             </div>
