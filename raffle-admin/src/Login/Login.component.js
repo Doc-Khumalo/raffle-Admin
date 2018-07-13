@@ -107,7 +107,7 @@ class Login extends Component{
         <form action="" id="user-form" noValidate="novalidate" onSubmit={event => this.handleSignIn(event)}>
           <fieldset>
             <div className="inputWrapper">
-              <label className="label">Email</label>
+              {/*<label className="label">Email</label>*/}
               <input
                 className="form-control formInput"
                 placeholder="Email"
@@ -119,7 +119,7 @@ class Login extends Component{
               />
             </div>
             <div className="inputWrapper">
-              <label className="label">Password</label>
+              {/*<label className="label">Password</label>*/}
               <input
                 className="form-control formInput"
                 placeholder="Password"
