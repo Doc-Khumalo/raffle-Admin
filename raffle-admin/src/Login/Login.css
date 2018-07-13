@@ -1,3 +1,8 @@
 .custom-button {
   margin-top: 20px;
 }
+
+.formInput {
+  display: inline;
+  width: auto;
+}
