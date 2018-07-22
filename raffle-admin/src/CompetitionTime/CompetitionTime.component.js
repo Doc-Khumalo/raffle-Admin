@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import TimePicker from 'react-bootstrap-time-picker';
 import fire from '../fire';
+import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment-timezone';
 import './CompetitionTime.css';
 import PopUp from '../PopUp/PopUp.component';
@@ -15,9 +18,12 @@ class CompetitionTime extends Component{
       resultEnd: null,
       disabled: true,
       value: new Date(),
+      siteLaunch: moment(),
       showPopup: false,
       time: 0
     };
+
+    this.handleLaunch = this.handleLaunch.bind(this);
   }
 
   formStart = e => this.setState({ formStart: e });
@@ -78,6 +84,19 @@ class CompetitionTime extends Component{
     this.setState({
       showPopup: !this.state.showPopup
     });
+  }
+
+  handleLaunch(date) {
+    this.setState({
+      siteLaunch: date
+    });
+
+    const database = fire.database();
+    const siteLaunch  = moment(date).tz("Europe/London").format();
+    database.ref('setSiteLaunch/').set({
+      siteLaunch
+    });
+    console.log('siteLaunch', siteLaunch)
   }
 
   render() {
@@ -166,6 +185,25 @@ class CompetitionTime extends Component{
         </div>
           </fieldset>
         </form>
+
+        <div>
+          <h1>Site Launch</h1>
+          <form>
+            <fieldset>
+              <div className="timeWrapper">
+                <DatePicker
+                  selected={this.state.siteLaunch}
+                  onChange={this.handleLaunch}
+                  showTimeSelect
+                  timeFormat="HH:mm"
+                  timeIntervals={15}
+                  dateFormat="LLL"
+                  timeCaption="time"
+                />
+              </div>
+            </fieldset>
+          </form>
+        </div>
       </div>
     )
   }
