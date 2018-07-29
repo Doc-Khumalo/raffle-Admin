@@ -20,7 +20,9 @@ class CompetitionTime extends Component{
       value: new Date(),
       siteLaunch: moment(),
       showPopup: false,
-      time: 0
+      time: 0,
+      error: '',
+      message: ''
     };
 
     this.handleLaunch = this.handleLaunch.bind(this);
@@ -93,10 +95,31 @@ class CompetitionTime extends Component{
 
     const database = fire.database();
     const siteLaunch  = moment(date).tz("Europe/London").format();
-    database.ref('setSiteLaunch/').set({
-      siteLaunch
-    });
+
+    let timeNow = new Date();
+    let newDate = new Date(date);
+
+    if(newDate < timeNow) {
+      this.setState({
+        error: 'Please check your date'
+      })
+    } else {
+      this.setState({
+        error: ''
+      });
+      database.ref('setSiteLaunch/').set({
+        siteLaunch
+      });
+    }
     console.log('siteLaunch', siteLaunch)
+  }
+
+  handleNumberOFWinners(event) {
+    event.preventDefault();
+    const database = fire.database();
+    database.ref('setNumberOfWinners/').set({
+      event
+    });
   }
 
   render() {
@@ -199,10 +222,41 @@ class CompetitionTime extends Component{
                   timeIntervals={15}
                   dateFormat="LLL"
                   timeCaption="time"
+                  withPortal
                 />
               </div>
+              <div>{this.state.error}</div>
             </fieldset>
           </form>
+        </div>
+        <div>
+          <h1>Number of winners</h1>
+          <div>
+            <div className="network-wrapper">
+              <label>Network</label>
+              <div className="form-group">
+                <select
+                  className="dropDown-custom"
+                  id="dropDown-custom"
+                  name='selectNetwork'
+                  onChange={item => this.handleNumberOFWinners(item)}
+                >
+                  {options.map((item, i) => {
+                    return (
+                      <option
+                        key={i}
+                        className="dropdown-option"
+                        value={item.label}
+                      >
+                        {item.value}
+                      </option>
+                    )
+                  })}
+                </select>
+                <span className="errorEmail">{this.state.message}</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
