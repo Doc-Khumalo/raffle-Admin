@@ -26,7 +26,7 @@ class CompetitionTime extends Component{
       showPopup: false,
       time: 0,
       error: '',
-      message: ''
+      message: '',
     };
 
     this.handleLaunch = this.handleLaunch.bind(this);
@@ -37,22 +37,24 @@ class CompetitionTime extends Component{
   }
 
 
-
   formStart(date) {
     this.setState({
       formStartTime: date
     });
   }
+
   formEnd(date) {
     this.setState({
       formEndTime: date
     });
   }
-  resultStart(date){
+
+  resultStart(date) {
     this.setState({
       resultStartTime: date
     });
   }
+
   resultEnd(date) {
     this.setState({
       resultEndTime: date
@@ -60,19 +62,18 @@ class CompetitionTime extends Component{
   }
 
   handleSubmit() {
-    let newTimeToSend = [];
-    let todayDate = moment().format().split('T')[0];
-
-    let formStart = moment().format();
-    let formEnd = moment().format();
-    let resultStart = moment().format();
-    let resultEnd = moment().format();
+    const {
+      formStartTime,
+      formEndTime,
+      resultStartTime,
+      resultEndTime,
+    } = this.state;
 
     const postData = {
-      formStart,
-      formEnd,
-      resultStart,
-      resultEnd,
+      formStart: moment(formStartTime).format(),
+      formEnd: moment(formEndTime).format(),
+      resultStart: moment(resultStartTime).format(),
+      resultEnd: moment(resultEndTime).format(),
     };
 
     const database = fire.database();
@@ -107,7 +108,7 @@ class CompetitionTime extends Component{
     });
 
     const database = fire.database();
-    const siteLaunch  = moment(date).tz("Europe/London").format();
+    const siteLaunch  = moment(date).format();
 
     let timeNow = new Date();
     let newDate = new Date(date);
