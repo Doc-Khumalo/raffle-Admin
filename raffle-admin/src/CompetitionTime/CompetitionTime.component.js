@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TimePicker from 'react-bootstrap-time-picker';
 import fire from '../fire';
 import DatePicker from 'react-datepicker';
-
+import DateTime from 'react-datetime';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment-timezone';
 import './CompetitionTime.css';
@@ -19,6 +19,10 @@ class CompetitionTime extends Component{
       disabled: true,
       value: new Date(),
       siteLaunch: moment(),
+      formStartTime: moment(),
+      formEndTime: moment(),
+      resultStartTime: moment(),
+      resultEndTime: moment(),
       showPopup: false,
       time: 0,
       error: '',
@@ -26,40 +30,49 @@ class CompetitionTime extends Component{
     };
 
     this.handleLaunch = this.handleLaunch.bind(this);
+    this.formStart = this.formStart.bind(this);
+    this.formEnd = this.formEnd.bind(this);
+    this.resultStart = this.resultStart.bind(this);
+    this.resultEnd = this.resultEnd.bind(this);
   }
 
-  formStart = e => this.setState({ formStart: e });
-  formEnd = e => this.setState({ formEnd: e });
-  resultStart = e => this.setState({ resultStart: e });
-  resultEnd = e => this.setState({ resultEnd: e });
+
+
+  formStart(date) {
+    this.setState({
+      formStartTime: date
+    });
+  }
+  formEnd(date) {
+    this.setState({
+      formEndTime: date
+    });
+  }
+  resultStart(date){
+    this.setState({
+      resultStartTime: date
+    });
+  }
+  resultEnd(date) {
+    this.setState({
+      resultEndTime: date
+    });
+  }
 
   handleSubmit() {
     let newTimeToSend = [];
-    let todayDate = moment().tz("Europe/London").toISOString().split('T')[0];
-    const {
+    let todayDate = moment().format().split('T')[0];
+
+    let formStart = moment().format();
+    let formEnd = moment().format();
+    let resultStart = moment().format();
+    let resultEnd = moment().format();
+
+    const postData = {
       formStart,
       formEnd,
       resultStart,
-      resultEnd
-    } = this.state;
-
-    const formattedFormStart = moment.utc(formStart * 1000).format('HH:mm:ss');
-    const formattedFormEnd = moment.utc(formEnd * 1000).format('HH:mm:ss');
-    const formattedResultStart = moment.utc(resultStart * 1000).format('HH:mm:ss');
-    const formattedResultEnd = moment.utc(resultEnd * 1000).format('HH:mm:ss');
-
-    newTimeToSend.push(
-      `${todayDate}T${formattedFormStart}`,
-      `${todayDate}T${formattedFormEnd}`,
-      `${todayDate}T${formattedResultStart}`,
-      `${todayDate}T${formattedResultEnd}`
-    );
-
-    const postData = {
-      formStart: moment(newTimeToSend[0]).tz("Europe/London").format(),
-      formEnd: moment(newTimeToSend[1]).tz("Europe/London").format(),
-      resultStart: moment(newTimeToSend[2]).tz("Europe/London").format(),
-      resultEnd: moment(newTimeToSend[3]).tz("Europe/London").format(),
+      resultEnd,
     };
 
     const database = fire.database();
@@ -118,16 +131,22 @@ class CompetitionTime extends Component{
     event.preventDefault();
     const database = fire.database();
     database.ref('setNumberOfWinners/').set({
-      event
+      winners: event.target.value,
     });
+
+    this.setState({
+      message: 'Number of winners set'
+    })
   }
 
   render() {
+
+    const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     const popUpInfo = (
       <div>
         time set
       </div>
-    )
+    );
 
     return (
       <div className="container-fluid">
@@ -144,68 +163,73 @@ class CompetitionTime extends Component{
         <form action="" id="user-form" noValidate="novalidate">
           <fieldset>
             <div className="componentWrapper">
-          <div className="formStart">
-            <label className="labelInput">Form Start:</label>
-            <div className="timeWrapper">
-              <TimePicker
-                format={24}
-                initialValue="00:00"
-                start="00:00"
-                end="23:55"
-                step={5}
-                value={this.state.formStart}
-                onChange={e => this.formStart(e)}
-              />
-            </div>
-          </div>
-          <div className="formEnd">
-            <label className="labelInput">Form End:</label>
+              <div className="formStart">
+                <label className="labelInput">Form Start:</label>
+                <div className="timeWrapper">
+                  <DatePicker
+                    selected={this.state.formStartTime}
+                    onChange={this.formStart}
+                    showTimeSelect
+                    timeFormat="HH:mm"
+                    timeIntervals={15}
+                    dateFormat="LLL"
+                    timeCaption="time"
+                    withPortal
+                  />
+                </div>
+              </div>
+              <div className="formEnd">
+                <label className="labelInput">Form End:</label>
+                  <div className="timeWrapper">
+                    <DatePicker
+                      selected={this.state.formEndTime}
+                      onChange={this.formEnd}
+                      showTimeSelect
+                      timeFormat="HH:mm"
+                      timeIntervals={15}
+                      dateFormat="LLL"
+                      timeCaption="time"
+                      withPortal
+                    />
+                  </div>
+              </div>
+              <div className="resultStart">
+                <label className="labelInput">Results Start:</label>
+                  <div className="timeWrapper">
+                    <DatePicker
+                        selected={this.state.resultStartTime}
+                        onChange={this.resultStart}
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                        timeIntervals={15}
+                        dateFormat="LLL"
+                        timeCaption="time"
+                        withPortal
+                      />
+                  </div>
+              </div>
 
-            <div className="timeWrapper">
-              <TimePicker
-                format={24}
-                start="00:00"
-                end="23:55"
-                step={5}
-                value={this.state.formEnd}
-                onChange={e => this.formEnd(e)}
-              />
+              <div className="formEnd">
+                <label className="labelInput">Results End:</label>
+                  <div className="timeWrapper">
+                    <DatePicker
+                      selected={this.state.resultEndTime}
+                      onChange={this.resultEnd}
+                      showTimeSelect
+                      timeFormat="HH:mm"
+                      timeIntervals={15}
+                      dateFormat="LLL"
+                      timeCaption="time"
+                      withPortal
+                    />
+                  </div>
+              </div>
+                <input
+                  type='button'
+                  value='submit times'
+                  onClick={() => this.handleSubmit()}
+                />
             </div>
-          </div>
-          <div className="resultStart">
-            <label className="labelInput">Results Start:</label>
-            <div className="timeWrapper">
-              <TimePicker
-                format={24}
-                start="00:00"
-                end="23:55"
-                step={5}
-                value={this.state.resultStart}
-                onChange={e => this.resultStart(e)}
-              />
-            </div>
-          </div>
-          <div className="resultEnd">
-            <label className="labelInput">Results End:</label>
-            <div className="timeWrapper">
-              <TimePicker
-                format={24}
-                start="00:00"
-                end="23:55"
-                step={5}
-                value={this.state.resultEnd}
-                onChange={e => this.resultEnd(e)}
-              />
-            </div>
-          </div>
-          {this.isTimeValid() === true &&
-            <input
-              type='button'
-              value='submit times'
-              onClick={() => this.handleSubmit()}
-            />
-          }
-        </div>
           </fieldset>
         </form>
 
@@ -246,9 +270,8 @@ class CompetitionTime extends Component{
                       <option
                         key={i}
                         className="dropdown-option"
-                        value={item.label}
                       >
-                        {item.value}
+                        {item}
                       </option>
                     )
                   })}
