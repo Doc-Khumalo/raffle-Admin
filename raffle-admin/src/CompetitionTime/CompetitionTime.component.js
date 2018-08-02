@@ -164,27 +164,13 @@ class CompetitionTime extends Component{
         <form action="" id="user-form" noValidate="novalidate">
           <fieldset>
             <div className="componentWrapper">
-              <div className="formStart">
-                <label className="labelInput">Form Start:</label>
-                <div className="timeWrapper">
-                  <DatePicker
-                    selected={this.state.formStartTime}
-                    onChange={this.formStart}
-                    showTimeSelect
-                    timeFormat="HH:mm"
-                    timeIntervals={15}
-                    dateFormat="LLL"
-                    timeCaption="time"
-                    withPortal
-                  />
-                </div>
-              </div>
-              <div className="formEnd">
-                <label className="labelInput">Form End:</label>
+              <div className="form_time">
+                <div className="formStart">
+                  <label className="labelInput">Form Start:</label>
                   <div className="timeWrapper">
                     <DatePicker
-                      selected={this.state.formEndTime}
-                      onChange={this.formEnd}
+                      selected={this.state.formStartTime}
+                      onChange={this.formStart}
                       showTimeSelect
                       timeFormat="HH:mm"
                       timeIntervals={15}
@@ -193,13 +179,13 @@ class CompetitionTime extends Component{
                       withPortal
                     />
                   </div>
-              </div>
-              <div className="resultStart">
-                <label className="labelInput">Results Start:</label>
-                  <div className="timeWrapper">
-                    <DatePicker
-                        selected={this.state.resultStartTime}
-                        onChange={this.resultStart}
+                </div>
+                <div className="formEnd">
+                  <label className="labelInput">Form End:</label>
+                    <div className="timeWrapper">
+                      <DatePicker
+                        selected={this.state.formEndTime}
+                        onChange={this.formEnd}
                         showTimeSelect
                         timeFormat="HH:mm"
                         timeIntervals={15}
@@ -207,35 +193,54 @@ class CompetitionTime extends Component{
                         timeCaption="time"
                         withPortal
                       />
-                  </div>
+                    </div>
+                </div>
+              </div>
+              <div className="result_time">
+                <div className="resultStart">
+                  <label className="labelInput">Results Start:</label>
+                    <div className="timeWrapper">
+                      <DatePicker
+                          selected={this.state.resultStartTime}
+                          onChange={this.resultStart}
+                          showTimeSelect
+                          timeFormat="HH:mm"
+                          timeIntervals={15}
+                          dateFormat="LLL"
+                          timeCaption="time"
+                          withPortal
+                        />
+                    </div>
+                </div>
+                <div className="formEnd">
+                  <label className="labelInput">Results End:</label>
+                    <div className="timeWrapper">
+                      <DatePicker
+                        selected={this.state.resultEndTime}
+                        onChange={this.resultEnd}
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                        timeIntervals={15}
+                        dateFormat="LLL"
+                        timeCaption="time"
+                        withPortal
+                      />
+                    </div>
+                </div>
               </div>
 
-              <div className="formEnd">
-                <label className="labelInput">Results End:</label>
-                  <div className="timeWrapper">
-                    <DatePicker
-                      selected={this.state.resultEndTime}
-                      onChange={this.resultEnd}
-                      showTimeSelect
-                      timeFormat="HH:mm"
-                      timeIntervals={15}
-                      dateFormat="LLL"
-                      timeCaption="time"
-                      withPortal
-                    />
-                  </div>
-              </div>
                 <input
                   type='button'
                   value='submit times'
+                  className="btn btn-primary"
                   onClick={() => this.handleSubmit()}
                 />
             </div>
           </fieldset>
         </form>
 
-        <div>
-          <h1>Site Launch</h1>
+        <div className="site_launch">
+          <h3>Site Launch</h3>
           <form>
             <fieldset>
               <div className="timeWrapper">
@@ -254,8 +259,8 @@ class CompetitionTime extends Component{
             </fieldset>
           </form>
         </div>
-        <div>
-          <h1>Number of winners</h1>
+          <div className="number_of_winners">
+          <h3>Number of winners</h3>
           <div>
             <div className="network-wrapper">
               <label>Network</label>

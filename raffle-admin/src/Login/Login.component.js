@@ -103,7 +103,7 @@ class Login extends Component{
             : null
           }
         </div>
-        Login
+        <span id="heading">Login</span>
         {this.state.loggedIn === false &&
         <form action="" id="user-form" noValidate="novalidate" onSubmit={event => this.handleSignIn(event)}>
           <fieldset>

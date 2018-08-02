@@ -2,17 +2,80 @@
   display: flex;
 }
 
-.labelWrapper, .timeWrapper {
-  /*flex-grow: 1;*/
-  /*width: 100%;*/
-  max-width: 145px;
+.componentWrapper {
+  max-width: 30rem;
+  padding: 0 1rem;
+  width: 100%;
   margin: 0 auto;
 }
 
-.componentWrapper {
-  max-width: 235px;
+.componentWrapper > div{
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #dedede;
+  text-align: left;
+}
+
+.componentWrapper > div > div{
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.componentWrapper > div > label{
+  display: block;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.labelWrapper,
+.timeWrapper{
+  max-width: none;
+}
+
+.react-datepicker__input-container{
+  display: block;
+}
+
+.timeWrapper input{
   width: 100%;
-  margin: 0 auto;
+  padding: 0.4rem;
+  border: 2px solid #8a8a8a;
+}
+
+.site_launch,
+.number_of_winners{
+  max-width: 30rem;
+  padding: 0 1rem;
+  width: 100%;
+  margin: 0 auto 2rem;
+}
+
+.number_of_winners{
+  margin-bottom: 0;
+}
+
+.site_launch fieldset{
+  padding: 0;
+}
+
+.number_of_winners h3,
+.site_launch h3{
+  margin-top: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.number_of_winners div {
+    text-align: left;
+    margin: 0;
+}
+
+.number_of_winners div select {
+    width: 100%;
+    padding: 0.4rem;
+    border: 2px solid #8a8a8a;
 }
 
 .dateTimePicker {
