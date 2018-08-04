@@ -78,13 +78,23 @@
     border: 2px solid #8a8a8a;
 }
 
+.timeWrapper .react-datepicker__time-container,
 .timeWrapper .react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button){
   right: 209px;
 }
 
+.timer_wrapper.react-datepicker__time-container{
+  width: 200px;
+}
+
+.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box{
+  width: auto;
+}
+
 .timeWrapper .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list{
   height: 336px;
-  box-sizing: border-box;  
+  box-sizing: border-box;
+  padding: 0;
 }
 
 .dateTimePicker {
