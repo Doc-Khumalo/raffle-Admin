@@ -17,12 +17,12 @@ class CompetitionTime extends Component{
       resultStart: null,
       resultEnd: null,
       disabled: true,
-      value: new Date(),
-      siteLaunch: moment(),
-      formStartTime: moment(),
-      formEndTime: moment(),
-      resultStartTime: moment(),
-      resultEndTime: moment(),
+      value: moment().tz("Africa/Lagos"),
+      siteLaunch: moment().tz("Africa/Lagos"),
+      formStartTime: moment().tz("Africa/Lagos"),
+      formEndTime: moment().tz("Africa/Lagos"),
+      resultStartTime: moment().tz("Africa/Lagos"),
+      resultEndTime: moment().tz("Africa/Lagos"),
       showPopup: false,
       time: 0,
       error: '',
@@ -108,10 +108,10 @@ class CompetitionTime extends Component{
     });
 
     const database = fire.database();
-    const siteLaunch  = moment(date).format();
+    const siteLaunch  = moment(date).tz("Africa/Lagos").format();
 
-    let timeNow = new Date();
-    let newDate = new Date(date);
+    let timeNow = moment().tz("Africa/Lagos");
+    let newDate = moment(date).tz("Africa/Lagos");
 
     if(newDate < timeNow) {
       this.setState({
