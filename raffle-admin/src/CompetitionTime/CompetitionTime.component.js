@@ -239,26 +239,26 @@ class CompetitionTime extends Component{
           </fieldset>
         </form>
 
-        <div className="site_launch">
-          <h3>Site Launch</h3>
-          <form>
-            <fieldset>
-              <div className="timeWrapper">
-                <DatePicker
-                  selected={this.state.siteLaunch}
-                  onChange={this.handleLaunch}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={15}
-                  dateFormat="LLL"
-                  timeCaption="time"
-                  withPortal
-                />
-              </div>
-              <div>{this.state.error}</div>
-            </fieldset>
-          </form>
-        </div>
+        {/*<div className="site_launch">*/}
+          {/*<h3>Site Launch</h3>*/}
+          {/*<form>*/}
+            {/*<fieldset>*/}
+              {/*<div className="timeWrapper">*/}
+                {/*<DatePicker*/}
+                  {/*selected={this.state.siteLaunch}*/}
+                  {/*onChange={this.handleLaunch}*/}
+                  {/*showTimeSelect*/}
+                  {/*timeFormat="HH:mm"*/}
+                  {/*timeIntervals={15}*/}
+                  {/*dateFormat="LLL"*/}
+                  {/*timeCaption="time"*/}
+                  {/*withPortal*/}
+                {/*/>*/}
+              {/*</div>*/}
+              {/*<div>{this.state.error}</div>*/}
+            {/*</fieldset>*/}
+          {/*</form>*/}
+        {/*</div>*/}
           <div className="number_of_winners">
           <h3>Number of winners</h3>
           <div>
