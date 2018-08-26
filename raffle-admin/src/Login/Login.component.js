@@ -167,7 +167,7 @@ class Login extends Component{
             <div className="button-wrapper">
               <input
                 type="button"
-                className="btn btn-outline-secondary button-option"
+                className="btn btn-outline-secondary button-option main-button"
                 onClick={event => this.handleScheduling(event)}
                 value="Manage form Scheduling"
               />
