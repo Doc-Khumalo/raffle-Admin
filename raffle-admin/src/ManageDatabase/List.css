@@ -1,0 +1,11 @@
+.item-user {
+  display: flex;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.data-wrapper {
+  margin: 2rem 0 2rem 0;
+}

@@ -47,3 +47,11 @@ fieldset {
   text-align: right;
   width: 140px;
 }
+
+.button-wrapper {
+  display: flex;
+}
+
+.button-option {
+  flex-grow: 1;
+}

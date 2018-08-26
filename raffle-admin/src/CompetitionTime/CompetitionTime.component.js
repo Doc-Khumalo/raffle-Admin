@@ -13,7 +13,6 @@ class CompetitionTime extends Component{
     super(props);
     this.state = {
       formStart: null,
-      formEnd: null,
       resultStart: null,
       resultEnd: null,
       disabled: true,
@@ -125,7 +124,6 @@ class CompetitionTime extends Component{
         siteLaunch
       });
     }
-    console.log('siteLaunch', siteLaunch)
   }
 
   handleNumberOFWinners(event) {
@@ -142,7 +140,7 @@ class CompetitionTime extends Component{
 
   render() {
 
-    const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const options = [0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40]
     const popUpInfo = (
       <div>
         time set
