@@ -9,19 +9,24 @@ const database = fire.database();
 let receivedDataUsers, receivedDataWinners;
 let dataToSearch = [];
 let dataWinners = [];
+let receivedDataTime = [];
 
 database.ref('users/').once('value').then((snapshot) => {
   receivedDataUsers = Object.entries(snapshot.val());
-  receivedDataUsers.map(item => {
-    dataToSearch.push(item[1].user)
-  });
+  if(receivedDataUsers !== null) {
+    receivedDataUsers.map(item => {
+      dataToSearch.push(item[1].user)
+    });
+  }
 });
 
 database.ref('dailyWinningNumbers/').once('value').then((snapshot) => {
   receivedDataWinners = Object.entries(snapshot.val());
-  receivedDataWinners[0][1].map(item => {
-    dataWinners.push(item)
-  });
+  if(receivedDataWinners !== null) {
+    receivedDataWinners[0][1].map(item => {
+      dataWinners.push(item)
+    });
+  }
 });
 
 class ManageDatabase extends Component {
@@ -35,6 +40,7 @@ class ManageDatabase extends Component {
       numberOfWinnersSet: null,
       users: dataToSearch,
       winners: dataWinners,
+      confirmedListReceived: [],
       items: [],
       itemWinners: [],
       showUsers: false,
@@ -59,6 +65,20 @@ class ManageDatabase extends Component {
     database.ref('setNumberOfWinners/').once('value').then((snapshot) => {
       let receivedData = Object.entries(snapshot.val());
       this.setState({ numberOfWinnersSet: receivedData[0][1]});
+    });
+
+
+    let confirmedWinnerList = [];
+    let vals, confirmedList;
+
+    database.ref('confirmedWinnerList/').once('value').then((snapshot) => {
+      confirmedList = snapshot.val();
+      if(confirmedList !== null) {
+        vals = Object.keys(confirmedList).map(key => {
+          return confirmedList[key];
+        });
+        this.setState({ confirmedListReceived: vals })
+      }
     });
 
     database.ref('usersAll/vals').once('value').then((snapshot) => {
@@ -96,7 +116,7 @@ class ManageDatabase extends Component {
   }
 
   render() {
-    const { numberOfEntriesToday, numberOfEntriesYesterday, winningNumbersToday, winningConfirmedList, numberOfWinnersSet, users, items, handleUsers, showWinners, itemWinners } = this.state;
+    const { numberOfEntriesToday, numberOfEntriesYesterday, winningNumbersToday, winningConfirmedList, numberOfWinnersSet, users, items, handleUsers, showWinners, itemWinners, confirmedListReceived } = this.state;
 
     return (
       <div className="container-fluid">
@@ -106,7 +126,16 @@ class ManageDatabase extends Component {
               <p>Users today: <span>{numberOfEntriesToday}</span></p>
               <p>Users yesterday: <span>{numberOfEntriesYesterday}</span></p>
               <p>Set winners: <span>{numberOfWinnersSet}</span></p>
-              <p>Confirmed numbers: <span>{winningConfirmedList} @TODO</span></p>
+              {confirmedListReceived !== undefined &&
+              <div>Confirmed numbers:
+                <ul className="flex-container wrap">
+                  {confirmedListReceived.map((item, i) => {
+                    return (<li className="flex-item" key={i}>{item.confirmedWinner.mobileNumber}</li>
+                  )
+                })}
+                </ul>
+              </div>
+              }
             </li>
           </ul>
         </div>
