@@ -13,16 +13,15 @@ class CompetitionTime extends Component{
     super(props);
     this.state = {
       formStart: null,
-      formEnd: null,
       resultStart: null,
       resultEnd: null,
       disabled: true,
-      value: new Date(),
-      siteLaunch: moment(),
-      formStartTime: moment(),
-      formEndTime: moment(),
-      resultStartTime: moment(),
-      resultEndTime: moment(),
+      value: moment().tz("Africa/Lagos"),
+      siteLaunch: moment().tz("Africa/Lagos"),
+      formStartTime: moment().tz("Africa/Lagos"),
+      formEndTime: moment().tz("Africa/Lagos"),
+      resultStartTime: moment().tz("Africa/Lagos"),
+      resultEndTime: moment().tz("Africa/Lagos"),
       showPopup: false,
       time: 0,
       error: '',
@@ -108,10 +107,10 @@ class CompetitionTime extends Component{
     });
 
     const database = fire.database();
-    const siteLaunch  = moment(date).format();
+    const siteLaunch  = moment(date).tz("Africa/Lagos").format();
 
-    let timeNow = new Date();
-    let newDate = new Date(date);
+    let timeNow = moment().tz("Africa/Lagos");
+    let newDate = moment(date).tz("Africa/Lagos");
 
     if(newDate < timeNow) {
       this.setState({
@@ -125,7 +124,6 @@ class CompetitionTime extends Component{
         siteLaunch
       });
     }
-    console.log('siteLaunch', siteLaunch)
   }
 
   handleNumberOFWinners(event) {
@@ -142,7 +140,7 @@ class CompetitionTime extends Component{
 
   render() {
 
-    const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const options = [0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 35, 40]
     const popUpInfo = (
       <div>
         time set
@@ -239,26 +237,26 @@ class CompetitionTime extends Component{
           </fieldset>
         </form>
 
-        <div className="site_launch">
-          <h3>Site Launch</h3>
-          <form>
-            <fieldset>
-              <div className="timeWrapper">
-                <DatePicker
-                  selected={this.state.siteLaunch}
-                  onChange={this.handleLaunch}
-                  showTimeSelect
-                  timeFormat="HH:mm"
-                  timeIntervals={15}
-                  dateFormat="LLL"
-                  timeCaption="time"
-                  withPortal
-                />
-              </div>
-              <div>{this.state.error}</div>
-            </fieldset>
-          </form>
-        </div>
+        {/*<div className="site_launch">*/}
+          {/*<h3>Site Launch</h3>*/}
+          {/*<form>*/}
+            {/*<fieldset>*/}
+              {/*<div className="timeWrapper">*/}
+                {/*<DatePicker*/}
+                  {/*selected={this.state.siteLaunch}*/}
+                  {/*onChange={this.handleLaunch}*/}
+                  {/*showTimeSelect*/}
+                  {/*timeFormat="HH:mm"*/}
+                  {/*timeIntervals={15}*/}
+                  {/*dateFormat="LLL"*/}
+                  {/*timeCaption="time"*/}
+                  {/*withPortal*/}
+                {/*/>*/}
+              {/*</div>*/}
+              {/*<div>{this.state.error}</div>*/}
+            {/*</fieldset>*/}
+          {/*</form>*/}
+        {/*</div>*/}
           <div className="number_of_winners">
           <h3>Number of winners</h3>
           <div>

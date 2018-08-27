@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import CompetitionTime from '../CompetitionTime/CompetitionTime.component';
+import ManageDatabase from '../ManageDatabase/ManageDatabase.component';
 import './Login.css';
 import fire from '../fire';
 
@@ -19,12 +20,13 @@ class Login extends Component{
       disabled: true,
       showPassword: false,
       passwordText: 'show',
-      type: 'password'
+      type: 'password',
+      manageDatabase: false,
+      manageFormScheduling: false
     }
   }
 
   labelHandler = event => {
-    console.log('labelHandler', event)
   };
 
   handleSubmit = event => {
@@ -48,10 +50,8 @@ class Login extends Component{
         this.setState({
           loggedIn: true
         });
-        console.log('response', response)
       })
       .catch(error => {
-        console.log('error', error);
         this.setState({
           errorMessage: error.message,
           loggedIn: false
@@ -83,7 +83,23 @@ class Login extends Component{
     } else {
       this.setState({ passwordText: 'show', type: 'password' })
     }
-  }
+  };
+
+  handleScheduling = (event) => {
+    event.preventDefault();
+    this.setState({
+      manageFormScheduling: true,
+      manageDatabase: false
+    });
+  };
+
+  handleDatabaseInfo = (event) => {
+    event.preventDefault();
+    this.setState({
+      manageFormScheduling: false,
+      manageDatabase: true
+    });
+  };
 
   render() {
     const popUpInfo = (
@@ -93,7 +109,7 @@ class Login extends Component{
     );
 
     return (
-      <div>
+      <div className="container-fluid">
         <div>
           {this.state.showPopup ?
             <PopUp
@@ -103,7 +119,7 @@ class Login extends Component{
             : null
           }
         </div>
-        <span id="heading">Login</span>
+        <span id="heading">{this.state.loggedIn ? 'Welcome Admin!' : 'Login'}</span>
         {this.state.loggedIn === false &&
         <form action="" id="user-form" noValidate="novalidate" onSubmit={event => this.handleSignIn(event)}>
           <fieldset>
@@ -148,7 +164,26 @@ class Login extends Component{
         }
         {this.state.loggedIn === true &&
           <div>
-            <CompetitionTime />
+            <div className="button-wrapper">
+              <input
+                type="button"
+                className="btn btn-outline-secondary button-option main-button"
+                onClick={event => this.handleScheduling(event)}
+                value="Manage form Scheduling"
+              />
+              <input
+                type="button"
+                value="Manage database"
+                className="btn btn-outline-success button-option"
+                onClick={event => this.handleDatabaseInfo(event)}
+              />
+            </div>
+            {this.state.manageFormScheduling === true &&
+              <CompetitionTime />
+            }
+            {this.state.manageDatabase === true &&
+              <ManageDatabase />
+            }
             <button
               className="btn btn-primary custom-button"
               type="submit"

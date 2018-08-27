@@ -13,13 +13,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.39742804">
+    <splitter split-orientation="horizontal" split-proportion="0.43554217">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="PopUp.component.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/PopUp/PopUp.component.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="391">
+                <state relative-caret-position="368">
                   <caret line="17" selection-start-line="17" selection-end-line="17" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
@@ -31,8 +31,8 @@
           <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+                <state relative-caret-position="46">
+                  <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -40,11 +40,41 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CompetitionTime.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Login.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Login/Login.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1288">
+                  <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="CompetitionTime.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="253">
-                  <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+                <state relative-caret-position="161">
+                  <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="List.component.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ManageDatabase/List.component.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="133">
+                  <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Winners.component.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ManageDatabase/Winners.component.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="368">
+                  <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
                 </state>
               </provider>
             </entry>
@@ -53,14 +83,47 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="CompetitionTime.component.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="CompetitionTime.component.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.component.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="188">
-                  <caret line="130" column="23" selection-start-line="130" selection-start-column="2" selection-end-line="130" selection-end-column="23" />
+                <state relative-caret-position="23">
+                  <caret line="15" selection-start-line="15" selection-end-line="15" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Login.component.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Login/Login.component.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3749">
+                  <caret line="169" column="78" selection-start-line="169" selection-start-column="78" selection-end-line="169" selection-end-column="78" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ManageDatabase.component.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ManageDatabase/ManageDatabase.component.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="506">
+                  <caret line="132" column="52" selection-start-line="132" selection-start-column="52" selection-end-line="132" selection-end-column="52" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="List.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/ManageDatabase/List.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="501">
+                  <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
                 </state>
               </provider>
             </entry>
@@ -71,16 +134,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onCh</find>
-      <find>onChange</find>
-      <find>phone</find>
-      <find>popUpInfo</find>
-      <find>loggedIn</find>
-      <find>onAuthStateChanged</find>
-      <find>togglePopup</find>
-      <find>form-control</find>
-      <find>handleSignIn</find>
-      <find>handleLogout</find>
       <find>Popup</find>
       <find>&lt;Popup</find>
       <find>moment</find>
@@ -99,6 +152,18 @@
       <find>submit</find>
       <find>resultEnd</find>
       <find>handleNumberOFWinners</find>
+      <find>Site Launch</find>
+      <find>handleScheduling</find>
+      <find>handleLogout</find>
+      <find>console.log</find>
+      <find>boo</find>
+      <find>console</find>
+      <find>.button-wrapper</find>
+      <find>handleUsers</find>
+      <find>conso</find>
+      <find>handleWinners</find>
+      <find>filterList</find>
+      <find>@TOD</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -111,8 +176,12 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/fire.js" />
         <option value="$PROJECT_DIR$/src/Login/Login.css" />
-        <option value="$PROJECT_DIR$/src/Login/Login.component.js" />
         <option value="$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.component.js" />
+        <option value="$PROJECT_DIR$/src/Login/Login.component.js" />
+        <option value="$PROJECT_DIR$/src/ManageDatabase/Winners.component.js" />
+        <option value="$PROJECT_DIR$/src/ManageDatabase/List.component.js" />
+        <option value="$PROJECT_DIR$/src/ManageDatabase/ManageDatabase.component.js" />
+        <option value="$PROJECT_DIR$/src/ManageDatabase/List.css" />
       </list>
     </option>
   </component>
@@ -143,6 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,24 +223,18 @@
             <path>
               <item name="raffle-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="raffle-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="raffle-admin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="raffle-admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="raffle-admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="raffle-admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="CompetitionTime" type="462c0819:PsiDirectoryNode" />
+              <item name="ManageDatabase" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,25 +285,29 @@
       <workItem from="1532829457241" duration="287000" />
       <workItem from="1532888752265" duration="596000" />
       <workItem from="1533030860689" duration="12782000" />
+      <workItem from="1533504729618" duration="599000" />
+      <workItem from="1533516264629" duration="248000" />
+      <workItem from="1535379179871" duration="4217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102660000" />
+    <option name="totallyTimeSpent" value="141692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14007372" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12585571" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32928178" />
+      <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.28586957" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.18478261" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -248,7 +316,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,38 +326,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Login/Login.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="64" column="7" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/Login.component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="48" column="14" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.firebaserc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -592,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/fire.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -606,16 +638,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/Login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PopUp/PopUp.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
+        <state relative-caret-position="368">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -623,37 +648,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Login/Login.component.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="64" column="9" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="9" />
+        <state relative-caret-position="46">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/Login/Login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        <state relative-caret-position="1288">
+          <caret line="56" column="14" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Login/Login.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3749">
+          <caret line="169" column="78" selection-start-line="169" selection-start-column="78" selection-end-line="169" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="161">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CompetitionTime/CompetitionTime.component.js">
+    <entry file="file://$PROJECT_DIR$/src/ManageDatabase/List.component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="130" column="23" selection-start-line="130" selection-start-column="2" selection-end-line="130" selection-end-column="23" />
+        <state relative-caret-position="133">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ManageDatabase/Winners.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ManageDatabase/ManageDatabase.component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="132" column="52" selection-start-line="132" selection-start-column="52" selection-end-line="132" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ManageDatabase/List.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
         </state>
       </provider>
     </entry>
